@@ -58,22 +58,21 @@ require_once 'includes/functions.php';
             </tr>
 
             <?php
-            $i = 0;
+            $i = 1; //id start @ 1, not 0
             foreach ($artikelen as $artikel) : ?>                
                 <tr>
                     <td><?php echo $artikel['artikel']; ?></td>
                     <td>€ <?php echo number_format($artikel['prijs'], 2); ?></td>
                     <td><?php echo $artikel['eenheid']; ?></td>
-                    <td><input type="number" name="productID<?php echo $i;$i++;?>" min="0" max="9" 
-                    <?php 
-                    
+                    <td><input type="number" name="productID<?php echo $i?>" min="0" max="9" 
+                    <?php                    
                     if ($artikel['eenheid'] == $gw) : 
                         echo $step;
-                    endif ?>></td>
-                       
+                    endif ?>></td>                     
                     <!--only unique ID's-->
                 </tr>
-            <?php endforeach ?>
+                <?php $i++;
+            endforeach ?>
         </table>
         <button type="submit" class="bestellen" id="bestellen" name="bestellen">Bestellen</button>
     </form>

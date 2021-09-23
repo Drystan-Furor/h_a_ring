@@ -2,7 +2,7 @@
 //require_once 'includes/db_connect.php'; // Database connection file
 require 'includes/functions.php';  // PHP functions file
 // order form
-$title = 'Overzicht';
+$title = 'Overzicht Bestelling';
 
 /**
 Als er van 
@@ -24,27 +24,41 @@ if (isset($_POST['bestellen'])) {
     // if <button> is clicked
     
     for ($i = 0; $i < $totalartikel; $i++) { 
-
-        if (!empty($_POST["productID$i"])) { 
+        echo $i;
+        if (!empty($_POST["productID$i"])) { //1 == visfriet
+            //when NOT empty run code, 0 is empty
             
-            $productByOrder = Test_input($_POST["productID$i"]); 
-            
-                //VAR bestelde aantal, 'sanitized by function'
+            $productByOrder = Test_input($_POST["productID$i"]); //1 => var
+            //VAR bestelde aantal, 'sanitized by function'
 
-            //zoek naar ID, vind product NAAM
-            if (array_search($i, array_column($artikelen, 'productID'))) { 
-                
+            //search ID, find product NAME
+            if (array_search($i, array_column($artikelen, 'productID'))) { // 1!=2 toch Kibbeling, niet visfriet, is $i dan ++?
+                // array gevonden == maak vars
                 $productByName  = $artikelen[$i]['artikel'];//array,key,element
-                //array_push($bestellingen['artikel'], $productByName); 
 
                 $productByPrice = number_format($artikelen[$i]['prijs'], 2);
-                //array_push($bestellingen['prijs'], $productByPrice); 
                 
                 $productByUnits = $artikelen[$i]['eenheid'];
-                //array_push($bestellingen['eenheid'], $productByUnits);
 
-                //array_push($bestellingen['besteld'], $productByOrder);
+                //vars naar array              
+                $bestellingen[] = [
+                   'artikel'    => $productByName, 
+                   'besteld'    => $productByOrder,
+                   'prijs'      => $productByPrice, 
+                   'eenheid'    => $productByUnits,                   
+                ];
+                
+            }
 
+        }       
+    }
+} 
+
+echo " <pre>";        
+var_dump($bestellingen);           
+echo " </pre>";
+            
+                /*
                 $kassabon  
                     = "<p>Artikel:" . $productByName . "<br>" .
                     " Besteld aantal: " . 
@@ -53,38 +67,17 @@ if (isset($_POST['bestellen'])) {
                     number_format($productByPrice, 2) . 
                     "</p>"
                 ;
-                
-
-                print_r($kassabon, true);
-                echo $kassabon;
-                /*
-                $bestellingen = [
-                   'artikel'    => $productByName, 
-                   'besteld'    => $productByOrder,
-                   'prijs'      => $productByPrice, 
-                   'eenheid'    => $productByUnits,                   
-                ];
                 */
-            }
+                //print_r($kassabon, true);
 
-        }       
-    }
-} 
-/*
-echo " <pre>";        
-var_dump($bestellingen);           
-echo " </pre>";
-            
-
-
-                
+      /*          
 foreach ($bestellingen as $bestelling) {
     echo $bestelling;
-}     
+}     */
     // echo de bestelling
     // bereken de prijs
     //echo de berekening
-*/
+
 
 
 ?>
