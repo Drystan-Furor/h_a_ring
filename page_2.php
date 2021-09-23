@@ -58,7 +58,7 @@ require_once 'includes/functions.php';
             </tr>
 
             <?php
-            $i = 1; //id start @ 1, not 0
+            $i = 0; //id start @ 1, not 0
             foreach ($artikelen as $artikel) : ?>                
                 <tr>
                     <td><?php echo $artikel['artikel']; ?></td>
