@@ -79,6 +79,23 @@ require_once 'includes/functions.php';
     </div>
 </div>
 
+<!--korting-->
+<div>
+    <p>
+    KORTING: Als u van een soort product 3 of meer besteld, dan krijgt u €0,09 korting per stuk.
+    Dit zult u aangegeven zien in het bestel overzicht.
+    </p>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- footer file -->
