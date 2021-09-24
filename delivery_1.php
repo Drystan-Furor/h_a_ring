@@ -1,17 +1,47 @@
 <?php
+session_start();
 //require_once 'includes/db_connect.php'; // Database connection file
-require_once 'includes/functions.php';  // PHP functions file
+//require_once 'includes/functions.php';  // PHP functions file
+
 //adres entry
 $title="Delivery Addres";
+
+
+
+require 'includes/productdata.php';
+/*
+echo '<pre>';
+var_dump($_SESSION['order']);
+echo '</pre>';
+*/
+
+/*
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+*/
+
+
+$vars = $_SESSION['vars'];
+$bestellingen = $_SESSION["bestellingen"] ;
+
+$productByAmount = intval($_SESSION['vars']['productByAmount']);
+$totaalBesteldeArtikelen = $_SESSION['vars']['totaalBesteldeArtikelen'];
+$totaalBedrag = $_SESSION['vars']['totaalBedrag'];
+$totaalkorting = $_SESSION['vars']['totaalkorting'];
+$totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
 
 ?>
 
 <!-- header file -->
 <?php require_once 'includes/header.php'; ?>
+<!-- header file -->
 
 <!--navigationn file-->
 <?php require_once 'includes/navmenu.php' ?>
 <!--navigationn file-->
+
+
 
 <h1 class="rngcenter">Uw Gegevens <br><span class="whitetext">invullen</span></h1>
 
@@ -56,7 +86,7 @@ $title="Delivery Addres";
 <!--collapsible end-->
 
 
-<div class="row">
+<div class="row" id="gegevens">
   <div class="col-75">
     <div class="container">
       <form action="confirm_order_1.php" method="post">
@@ -122,22 +152,51 @@ $title="Delivery Addres";
     </div>
   </div>
 
-  <div class="col-25">
+<!-- cart "header" => total products, both type/amount -->
+<div class="col-25">
     <div class="container">
-      <h4>Cart
-        <span class="price" style="color:black">
-          <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
-        </span>
-      </h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+        <h4>Cart
+            <span class="price" style="color:black">
+                <i class="fa fa-shopping-cart"></i>
+                <b>producten: 
+                    <?php echo $totaalBesteldeArtikelen;?>
+            </b>
+            </span><br>
+            <span class="price" style="color:black">
+                <i class="fa fa-shopping-cart"></i>
+                <b>(gewicht = 1 item) items:
+                <?php echo $productByAmount ?>
+            </b>
+            </span>
+        </h4>
+
+        <!-- list each price -->
+        <!-- echo ARTIKEL PRIJS per EENHEID = TOTAALPRIJS => kolom -->
+        <?php foreach ($bestellingen as $bestelling) : ?>
+        <p><a href="#"><?php echo $bestelling['artikel'];?></a>
+        <span class="price"><?php 
+        if ($bestelling['eenheid'] == $gw) { 
+            echo number_format($bestelling['besteld'], 3) . "kg";
+            $bestelling['eenheid'] = "kg.";
+        } else if ($bestelling['eenheid'] == $ea) {
+            echo $bestelling['besteld'] . "x";
+        } else if ($bestelling['eenheid'] == $unit) {
+            echo $bestelling['besteld'] . "x 250gr";
+            $bestelling['eenheid'] = $ea;
+        }
+        ?>
+        (€<?php echo $bestelling['prijs'];?>p/
+            <?php echo $bestelling['eenheid'];?>): 
+            <strong>€<?php echo $bestelling['bedrag'];?></strong>
+            <?php 
+        endforeach; ?> </p><br>
+
+        <hr> <!-- ECHO SUM TOTALS -->
+        <p>Sub-Totaal <span class="price" style="color:black"><b>€<?php echo number_format($totaalBedrag, 2) ?></b></span></p>
+        <p>Korting <span class="price" style="color:black"><b>€<?php echo number_format($totaalkorting, 2) ?></b></span></p>
+        <p>Totaal <span class="price" style="color:black"><b>€<?php echo number_format($totaalBedragKorting, 2) ?></b></span></p>
     </div>
-  </div>
+</div>
 </div>
 
 

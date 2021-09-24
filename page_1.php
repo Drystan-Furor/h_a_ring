@@ -2,18 +2,20 @@
 <?php
 $title = "Home";
 require_once 'includes/header.php'; 
-require_once 'includes/functions.php';?>
+require_once 'includes/functions.php';
+require_once 'includes/productdata.php';
+?>
 
 
-<!-------------------------------------------navigationn file ------------------------------->
+<!--navigationn file-->
 <?php require_once 'includes/navmenu.php' ?>
-<!-------------------------------------------navigationn file ------------------------------->
+<!--navigationn file-->
 
 
 
 <h1 class="rngcenter">Visboer <br><span class="whitetext">H.A. Ring</span></h1>
 
-<!--collapsible ---------------------------------------------------------------------------------->
+<!--collapsible -->
 <div class="wrap-collabsible">
     <input id="collapsible" class="toggle" type="checkbox">
     <label for="collapsible" class="lbl-toggle">Vis naar Info</label>
@@ -32,8 +34,7 @@ require_once 'includes/functions.php';?>
         </div>
     </div>
 </div>
-<!--collapsible ------------------------------------------------<p class="centeredpar">---------------------------------->
-
+<!--collapsible-<p class="centeredpar">-->
 
 
 <h2 class="rngh2">Hier volgt de website.</h2>
@@ -54,14 +55,12 @@ require_once 'includes/functions.php';?>
 
 </div>
 
-<!-- ----------------------------------------------------------------------FORM------------>
 
 
 
 
 
-
-<!--collapsible ------------------------------------------------------------------>
+<!--collapsible-->
 <div class="wrap-collabsible">
     <input id="collapsible2" class="toggle" type="checkbox">
     <label for="collapsible2" class="lbl-toggle">Alle prijzen</label>
@@ -85,7 +84,7 @@ require_once 'includes/functions.php';?>
         </div>
     </div>
 </div>
-<!--collapsible ------------------------------------------------------------------->
+<!--collapsible-->
 
 
 <div class="center">
@@ -102,7 +101,7 @@ require_once 'includes/functions.php';?>
 
 
 
-<!--------------------------------------------------------------------------------------------infinite loading-->
+<!--infinite loading-->
 <h1 class="generateloader">VIS BESTELLINGEN <br><span class="whitetext">AAN HET VERWERKEN</span></h1>
 <div class="loading-box">
     <div class="loader"></div>
@@ -114,7 +113,7 @@ require_once 'includes/functions.php';?>
 
 
 
-<!---------------------------------------------------------------------SCRIPTS -->
+<!--SCRIPTS -->
 <script>
     let myLabels = document.querySelectorAll('.lbl-toggle');
 

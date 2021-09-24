@@ -12,7 +12,7 @@ $title = 'Overzicht Bestelling';
 
 <!-- header file -->
 <?php require_once 'includes/header.php'; ?>
-
+<!-- header file -->
 
 
 
@@ -67,7 +67,7 @@ $title = 'Overzicht Bestelling';
             </span><br>
             <span class="price" style="color:black">
                 <i class="fa fa-shopping-cart"></i>
-                <b>Aantal items (1 kg = 1 item) :
+                <b>Aantal items (gewicht = 1 item) :
                 <?php echo $productByAmount ?>
             </b>
             </span>
@@ -92,7 +92,7 @@ $title = 'Overzicht Bestelling';
          ( €<?php echo $bestelling['prijs'];?> per 
             <?php echo $bestelling['eenheid'];?> ) totaal: 
             <strong>€<?php echo $bestelling['bedrag'];?></strong>
-            <?php // KORTING NOG BEREKENEN
+            <?php
         endforeach; ?> 
 
         <hr> <!-- ECHO SUM TOTALS -->
@@ -104,8 +104,8 @@ $title = 'Overzicht Bestelling';
 </div>
 
 <!-- buttons -->
-<form action="delivery_1.php">
-    <button type="submit" name="bestellen" class="bestellen" id="bestellen">Aflever adres invullen</button>
+<form method="post" action="delivery_1.php">
+    <button type="submit" name="leveren" class="leveren" id="leveren">Aflever adres invullen</button>
 </form>
 
 <form action="page_2.php">

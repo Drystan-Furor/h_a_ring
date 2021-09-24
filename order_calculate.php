@@ -9,14 +9,10 @@ Als er van
     koppel productID0 aan [productID] => 0
     $var = $array[$key]['element'];
  */
+session_start();
 //require_once 'includes/db_connect.php'; // Database connection file
 require 'includes/functions.php';  // PHP functions file
-
-
-// order form H A Ring Online Bestellen
-$title = 'Overzicht Bestelling';
-
-
+require 'includes/productdata.php';
 
     // isset(): returns true even if empty; 
     // array_key_exists() returns true even if empty;
@@ -69,21 +65,20 @@ if (isset($_POST['bestellen'])) {
                 ];
                 $totaalBedrag += $productByTotal; //sum total 
                 $totaalkorting += $productByDiscount;
-  
-
-                // array string concat {debug purposes}
-                $kassabon[] = [//kassabon
-                    $productByName . "  " . //van DIT artikel
-                    $productByOrder . " x " . // is ZOVEEL besteld
-                    $productByPrice . " per " . // voor EURO
-                    $productByUnits . " = €" . // PER gewicht / stuks / bakje
-                    $productByTotal            // TOTAAL = 'besteld' x 'prijs'
-                ];
         }       
     }
-}
-$totaalBesteldeArtikelen = count($bestellingen);
-$totaalBedragKorting = $totaalBedrag - $totaalkorting;
-//how many different items are ordered?
+    $totaalBesteldeArtikelen = count($bestellingen);
+    $totaalBedragKorting = $totaalBedrag - $totaalkorting;
+    //how many different items are ordered?
+} //NEW CODE, VARS OPHALEN, niet RERUN script. data bestaat al,
 
-?>
+$vars = [
+    'totaalBesteldeArtikelen' => $totaalBesteldeArtikelen,
+    'totaalBedrag' => $totaalBedrag,
+    'totaalkorting' => $totaalkorting,
+    'totaalBedragKorting' => $totaalBedragKorting,
+    'productByAmount' => $productByAmount,
+];
+
+$_SESSION["bestellingen"] = $bestellingen ;
+$_SESSION['vars'] = $vars;

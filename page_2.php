@@ -1,13 +1,23 @@
+<?php
+/**
+ Bestel Pagina 
+ */
+require_once 'includes/functions.php';
+require_once 'includes/productdata.php';
+$title = "Bestel";
+?>
+
+
 <!-- header file -->
 <?php
-$title = "Bestel";
 require_once 'includes/header.php';
-require_once 'includes/functions.php';
 ?>
+<!-- header file -->
 
 <!--navigationn file-->
 <?php require_once 'includes/navmenu.php' ?>
 <!--navigationn file-->
+
 
 <h1 class="rngcenter">ONLINE <br><span class="whitetext">bestellen</span></h1>
 
@@ -58,7 +68,7 @@ require_once 'includes/functions.php';
             </tr>
 
             <?php
-            $i = 0; //id start @ 1, not 0
+            $i = 0;
             foreach ($artikelen as $artikel) : ?>                
                 <tr>
                     <td><?php echo $artikel['artikel']; ?></td>
@@ -86,13 +96,6 @@ require_once 'includes/functions.php';
     Dit zult u aangegeven zien in het bestel overzicht.
     </p>
 </div>
-
-
-
-
-
-
-
 
 
 
