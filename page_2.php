@@ -74,7 +74,7 @@ require_once 'includes/header.php';
                     <td><?php echo $artikel['artikel']; ?></td>
                     <td>€ <?php echo number_format($artikel['prijs'], 2); ?></td>
                     <td><?php echo $artikel['eenheid']; ?></td>
-                    <td><input type="number" name="productID<?php echo $i?>" min="0" max="9" 
+                    <td><input type="number" name="productID<?php echo $i?>" min="0" max="99" 
                     <?php                    
                     if ($artikel['eenheid'] == $gw) : 
                         echo $step;
@@ -90,14 +90,15 @@ require_once 'includes/header.php';
 </div>
 
 <!--korting-->
-<div>
-    <p>
-    KORTING: Als u van een soort product 3 of meer besteld, dan krijgt u €0,09 korting per stuk.
+<div class="centertext">
+                <h2>KORTING</h2>
+                <p>
+    Als u van een soort product 3 of meer besteld, dan krijgt u €0,09 korting per stuk.
     Dit zult u aangegeven zien in het bestel overzicht.
-    </p>
+                </p>
+
 </div>
-
-
+<!--collapsible end-->
 
 
 
