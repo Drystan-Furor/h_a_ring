@@ -38,7 +38,7 @@ require_once 'includes/productdata.php';
 
 
 <h2 class="rngh2">Hier volgt de website.</h2>
-<div class="greeting">
+<div class="greeting" id="greeting">
 <h3><?php echo greet();?></h3>
 <p>Welkom op onze site, <a href="page_2.php">hier</a> kunt u ook bestellen</p>
 </div>
@@ -129,5 +129,25 @@ require_once 'includes/productdata.php';
     });
 </script>
 
+<script>
+    var tijd = new Date().getHours();
+    if (tijd < 12) {
+    begroeting = "Goedemorgen door JS";
+    //code IF true
+} else if (tijd < 18) {
+    begroeting = "Goedemiddag door JS";
+    //code IF 1 false, en 2 true
+} else {
+    begroeting = "Goedeavond door JS";
+    // code if 1 == false && 2 == false
+}
+    document.getElementById("greeting").innerHTML = begroeting
+    
+
+
+
+</script>
+
+
 <!-- footer file -->
-<?php require_once('includes/footer.php'); ?>
+<?php require_once 'includes/footer.php'; ?>
