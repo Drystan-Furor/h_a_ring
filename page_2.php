@@ -2,7 +2,7 @@
 /**
  Bestel Pagina 
  */
-require_once 'includes/functions.php';
+
 require_once 'includes/productdata.php';
 $title = "Bestel";
 ?>
@@ -59,7 +59,7 @@ require_once 'includes/header.php';
 <div class="centertext">
     <div class="centertable">
     <form method="post" action="order_1.php">
-        <table class="generatedcode">
+        <table class="generatedcodeTable">
             <tr>
                 <th>Artikel</th>
                 <th>Prijs</th>
@@ -84,16 +84,16 @@ require_once 'includes/header.php';
                 <?php $i++;
             endforeach ?>
         </table>
-        <button type="submit" class="bestellen" id="bestellen" name="bestellen">Bestellen</button>
+        <button type="submit" class="bestelknop" id="bestellen" name="bestellen">Bestellen</button>
     </form>
     </div>
 </div>
 
 <!--korting-->
-<div class="centertext">
+<div class="uncollapsible-extra">
                 <h2>KORTING</h2>
                 <p>
-    Als u van een soort product 3 of meer besteld, dan krijgt u €0,09 korting per stuk.
+    Als u van een soort product 3 of meer besteld, dan krijgt u €<?php echo $discount ?> korting per stuk.<br>
     Dit zult u aangegeven zien in het bestel overzicht.
                 </p>
 

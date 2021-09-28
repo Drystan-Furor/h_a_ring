@@ -12,7 +12,7 @@ require_once 'includes/functions.php';?>
 <!--collapsible ---------------------------------------------------------------------------------->
 <div class="wrap-collabsible">
     <input id="collapsible" class="toggle" type="checkbox">
-    <label for="collapsible" class="lbl-toggle">Vis naar Info</label>
+    <label for="collapsible" class="lbl-toggle">OVER ONS</label>
     <div class="collapsible-content">
         <div class="content-inner">
             <div class="introparagraph">

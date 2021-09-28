@@ -38,8 +38,8 @@ require_once 'includes/productdata.php';
 
 
 <h2 class="rngh2">Hier volgt de website.</h2>
-<div class="greeting" id="greeting">
-<h3><?php echo greet();?></h3>
+<div class="greeting">
+<h3><?php echo greet();?>(PHP function)</h3>
 <p>Welkom op onze site, <a href="page_2.php">hier</a> kunt u ook bestellen</p>
 </div>
 
@@ -47,11 +47,14 @@ require_once 'includes/productdata.php';
     <p class="generatedcode">
 
         Op de echte website kan de bezoeker naar een bestelpagina, een info-pagina en een
-        contact-pagina.
-
-
-
-    </p><br>
+        contact-pagina.<br>
+        <span id="greeting"></span><br>
+        begroeting op tijd basis via JS<br>
+    Klik hierboven op "vis naar info voor Javascript functionaliteit".<br>
+    Klik hieronder op "alle prijzen" om een php array te zien binnen een JS script.<br>
+    Onderaan de pagina, VIS BESTELLINEGEN AAN HET VERWERKEN is 
+    een proof of concept van CSS mogelijkheden
+    </p>
 
 </div>
 
@@ -66,7 +69,7 @@ require_once 'includes/productdata.php';
     <label for="collapsible2" class="lbl-toggle">Alle prijzen</label>
     <div class="collapsible-content">
         <div class="content-inner">
-            <table>
+            <table class="prijstabel">
                 <tr>
                     <th>Artikel</th>
                     <th>Eenheid</th>
@@ -132,20 +135,16 @@ require_once 'includes/productdata.php';
 <script>
     var tijd = new Date().getHours();
     if (tijd < 12) {
-    begroeting = "Goedemorgen door JS";
+    begroeting = "Goedemorgen";
     //code IF true
 } else if (tijd < 18) {
-    begroeting = "Goedemiddag door JS";
+    begroeting = "Goedemiddag";
     //code IF 1 false, en 2 true
 } else {
-    begroeting = "Goedeavond door JS";
+    begroeting = "Goedeavond";
     // code if 1 == false && 2 == false
 }
     document.getElementById("greeting").innerHTML = begroeting
-    
-
-
-
 </script>
 
 

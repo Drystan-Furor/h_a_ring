@@ -1,27 +1,15 @@
 <?php
-session_start();
 //require_once 'includes/db_connect.php'; // Database connection file
 //require_once 'includes/functions.php';  // PHP functions file
 
 //adres entry
 $title="Delivery Addres";
 
+require_once 'includes/productdata.php';
 
 
-require 'includes/productdata.php';
-/*
-echo '<pre>';
-var_dump($_SESSION['order']);
-echo '</pre>';
-*/
-
-/*
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
-*/
-
-
+session_start();
+//get vars from sessions
 $vars = $_SESSION['vars'];
 $bestellingen = $_SESSION["bestellingen"] ;
 
@@ -30,6 +18,7 @@ $totaalBesteldeArtikelen = $_SESSION['vars']['totaalBesteldeArtikelen'];
 $totaalBedrag = $_SESSION['vars']['totaalBedrag'];
 $totaalkorting = $_SESSION['vars']['totaalkorting'];
 $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
+
 
 ?>
 
@@ -86,6 +75,7 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
 <!--collapsible end-->
 
 
+<!-- gegevens formmulier -->
 <div class="row" id="gegevens">
   <div class="col-75">
     <div class="container">
@@ -93,13 +83,13 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
 
         <div class="row">
           <div class="col-50">
-            <h3>Factuur Adres</h3>
+            <h3>Factuur Adres</h3><!--NAAM ADRES POSTCODE ETC -->
             <label for="fname"><i class="fa fa-user"></i> Naam</label>
-            <input type="text" id="fname" name="firstname" placeholder="Pangasius S Karper">
+            <input type="text" id="fname" name="firstname" placeholder="Pangasius S Karper" required>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="goudvis@example.com">
+            <input type="text" id="email" name="email" placeholder="goudvis@example.com" required>
             <label for="adr"><i class="fa fa-address-card-o"></i> Adres</label>
-            <input type="text" id="adr" name="address" placeholder="Visscherstraat 76">
+            <input type="text" id="adr" name="address" placeholder="Visscherstraat 76" required>
             <label for="city"><i class="fa fa-institution"></i> Stad</label>
             <input type="text" id="city" name="city" placeholder="Visvliet">
 
@@ -109,12 +99,13 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
                 <input type="text" id="state" name="state" placeholder="Zeeland">
               </div>
               <div class="col-50">
-                <label for="zip">Poscode</label>
-                <input type="text" id="zip" name="zip" placeholder="4301 AB">
+                <label for="zip">Postcode</label>
+                <input type="text" id="zip" name="zip" placeholder="4301 AB" required>
               </div>
             </div>
           </div>
 
+          <!--CREDITCARD -->
           <div class="col-50">
             <h3>Betaalwijze</h3>
             <label for="fname">Credit Card</label>
@@ -125,9 +116,9 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
             <label for="cname">Naam Pashouder</label>
-            <input type="text" id="cname" name="cardname" placeholder="Pangasius Snoek Karper">
+            <input type="text" id="cname" name="cardname" placeholder="Pangasius Snoek Karper" required>
             <label for="ccnum">Credit card nummer</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1324-5678-9012-3456">
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1324-5678-9012-3456" required>
             <label for="expmonth">Verval Maand</label>
             <input type="text" id="expmonth" name="expmonth" placeholder="September">
 
@@ -146,8 +137,11 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
         </div>
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Aflever adres is factuur adres
+        </label><br>
+        <label>
+          <input type="checkbox"  name="pickup"> Ik kom mijn bestelling ophalen in de winkel
         </label>
-        <input type="submit" value="Verder naar afrekenen" class="btn" id="afrekenen">
+        <input type="submit" name="checkout" value="Verder naar afrekenen" class="btn" id="afrekenen">
       </form>
     </div>
   </div>
@@ -199,10 +193,6 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
 </div>
 </div>
 
-
-<form>
-<button type="submit" class="bestellen" id="terug" name="bestellen" onclick="history.go(-1)">Terug</button>
-        </form>
 
 
 <!-- footer file -->

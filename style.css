@@ -231,6 +231,10 @@ background-color: rgb(15, 15, 15);
 
 /*------------------------------------------------------------------------------*/
 
+.leveren {
+    margin-top: 20px;
+}
+
 .leveren,
 .bestellen {
     background-color: black;
@@ -448,8 +452,23 @@ basic styles to the inner content:  */
 .container {
     background-color: #f2f2f2;
     padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
+    /*border: 1px solid lightgrey;
     border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;*/
+    border: 3px solid #EE8600;
+    border-radius: 25px;
+}
+
+.container2 {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 3px solid #EE8600;
+    border-radius: 25px;
 }
 
 input[type=text] {
@@ -490,6 +509,68 @@ input[type=text] {
 span.price {
     float: right;
     color: grey;
+}
+
+
+/*-------------------------------------------uncollapsible-extra */
+
+.generatedcodeTable {
+    /*prijs tabel via php array*/
+    border: 2px solid #EE8600;
+    border-radius: 50px 50px 0 0;
+    background-color: white;
+    padding: 2%;
+    margin-bottom: -20px;
+    /*this pushes up the Bestel Button, as in, it allows space for other element*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.bestelknop {
+    /*knop kleur*/
+    background-color: black;
+    /* text op knop kleur*/
+    color: rgb(248, 4, 4);
+    /*content - padding - border - margin: padding is de ruimte IN de knop OM de tekst */
+    padding: 5px 0 5px 5px;
+    /*lettertype */
+    font-family: Copperplate, Fantasy, serif;
+    /* hoe dik en welke kleur + "vorm" is mijn border */
+    border: 3px solid #EE8600;
+    /*afgeronde hoekjes*/
+    border-radius: 50px;
+    /*letter iets groter*/
+    font-size: 120%;
+    /*tekst in het midden*/
+    text-align: center;
+    /* box elements */
+    left: 0;
+    bottom: 0;
+    width: 10%;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uncollapsible-extra {
+    background: #26282A;
+    color: #EE8600;
+    margin-top: -20px;
+    border-bottom: 1px solid #EE8600;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: .5rem 1rem;
+    border: 2px solid #EE8600;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+    position: relative;
 }
 
 

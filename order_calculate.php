@@ -9,7 +9,6 @@ Als er van
     koppel productID0 aan [productID] => 0
     $var = $array[$key]['element'];
  */
-session_start();
 //require_once 'includes/db_connect.php'; // Database connection file
 require 'includes/functions.php';  // PHP functions file
 require 'includes/productdata.php';
@@ -23,7 +22,7 @@ if (isset($_POST['bestellen'])) {
     // if <button> is clicked
     $totaalBedrag = 0;
     $productByAmount = 0;
-    $discount = 0.09;
+    //$discount = 0.09;
     $totaalkorting = 0;
 
     for ($i = 0; $i < $totalartikel; $i++) { 
@@ -37,7 +36,8 @@ if (isset($_POST['bestellen'])) {
             
             $productByUnits = $artikelen[$i]['eenheid'];
 
-            $productByOrder = Test_input($_POST["productID$i"]);           
+            $productByOrder = Test_input($_POST["productID$i"]); 
+    
             //VAR order amount, 'sanitized by function'
 
             $productByAmount += intval(number_format(ceil($productByOrder)));

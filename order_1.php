@@ -3,7 +3,8 @@
 Order inspection
  */
 //require_once 'includes/db_connect.php'; // Database connection file
-require 'order_calculate.php';      // collect & process order data
+require_once 'includes/productdata.php';
+require_once 'order_calculate.php';      // collect & process order data
 
 // order form H A Ring Online Bestellen
 $title = 'Overzicht Bestelling';
@@ -55,9 +56,15 @@ $title = 'Overzicht Bestelling';
 </div>
 <!--collapsible end-->
 
+<p class="centertext">
+    Controleer uw bestelling en klik op "Aflever adres invullen" als het klopt om verder te gaan.<br>
+    Als een product in gewicht wordt besteld wordt er voor dat product 1 item per kg gerekend.<br>
+    Dit betekend dat als u 3kg of meer besteld van dat product, ook daar de korting geldt.
+</p>
+
 <!-- cart "header" => total products, both type/amount -->
 <div class="col-25">
-    <div class="container">
+    <div class="container2">
         <h4>Cart
             <span class="price" style="color:black">
                 <i class="fa fa-shopping-cart"></i>
@@ -77,15 +84,22 @@ $title = 'Overzicht Bestelling';
         <!-- echo ARTIKEL PRIJS per EENHEID = TOTAALPRIJS => kolom -->
         <?php foreach ($bestellingen as $bestelling) : ?>               
         <p>Artikel: <a href="#"><?php echo $bestelling['artikel'];?></a> 
-        <span class="price">Aantal: <?php echo $bestelling['besteld']; 
+        <span class="price">Aantal: <?php 
+        
+        
         if ($bestelling['eenheid'] == $gw) { 
+            echo $bestelling['besteld']*1000; 
             echo " gr.";
             $bestelling['eenheid'] = "kg.";
         } else if ($bestelling['eenheid'] == $ea) {
+            echo $bestelling['besteld']; 
             echo " $eas";
         } else if ($bestelling['eenheid'] == $unit) {
+            echo $bestelling['besteld']; 
             echo " x bakje, 250 gr.";
             $bestelling['eenheid'] = $ea;
+        } else {
+            echo "Er gaat iets mis, bestel eventueel telefonisch";
         }
         
         ?>
@@ -107,11 +121,6 @@ $title = 'Overzicht Bestelling';
 <form method="post" action="delivery_1.php">
     <button type="submit" name="leveren" class="leveren" id="leveren">Aflever adres invullen</button>
 </form>
-
-<form action="page_2.php">
-    <button type="submit" name="bestellen" class="bestellen" id="bestellen">Terug</button>
-</form>
-
 
 
 <!-- footer file -->

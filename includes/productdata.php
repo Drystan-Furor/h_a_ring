@@ -1,4 +1,7 @@
 <?php
+
+
+
 /**
  Basic Array
  Artikel toevoegen of verwijderen?
@@ -22,6 +25,7 @@ $artikelen = [
     ['artikel' => "Cocktailsaus",   'eenheid' => $ea,   'productID' => 7, 'prijs' => 0.60,],
 ];
 
+$discount = 0.09;
 $totalartikel = count($artikelen);//count array once, not in for loop
 
 //-------dirty VAR, no <HTML> in PHP string.
