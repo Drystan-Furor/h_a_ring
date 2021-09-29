@@ -4,7 +4,7 @@
  */
  //requires
 
-
+ require_once 'includes/functions.php';
 
 //get vars with 'isset'
 //button
@@ -12,19 +12,19 @@
 
 if (isset($_POST["checkout"])) {
     //user
-    $userName = $_POST["firstname"];
-    $userEmail = $_POST["email"];
-    $userAddress = $_POST["address"];
-    $userCity = $_POST["city"];
-    $userProvincie = $_POST["state"];
-    $userPostcode = $_POST["zip"];
+    $userName = Test_input($_POST["firstname"]);
+    $userEmail = Test_input($_POST["email"]);
+    $userAddress = Test_input($_POST["address"]);
+    $userCity = Test_input($_POST["city"]);
+    $userProvincie = Test_input($_POST["state"]);
+    $userPostcode = Test_input($_POST["zip"]);
 
     //card data
-    $cardName = $_POST["cardname"];
-    $cardNumber = $_POST["cardnumber"];
-    $expiryMonth = $_POST["expmonth"];
-    $expiryYear = $_POST["expyear"];
-    $cardValidationValue = $_POST["cvv"];
+    $cardName = Test_input($_POST["cardname"]);
+    $cardNumber = Test_input($_POST["cardnumber"]);
+    $expiryMonth = Test_input($_POST["expmonth"]);
+    $expiryYear = Test_input($_POST["expyear"]);
+    $cardValidationValue = Test_input($_POST["cvv"]);
 
     //checkboxes
     if (isset($_POST["sameadr"])) {
