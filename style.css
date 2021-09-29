@@ -584,3 +584,15 @@ span.price {
         margin-bottom: 20px;
     }
 }
+
+
+/*------------TABLE LAYOUT ----------------------------*/
+
+.tdInputTable {
+    width: 20%;
+}
+
+.prijstabel {
+    margin-left: auto;
+    margin-right: auto;
+}

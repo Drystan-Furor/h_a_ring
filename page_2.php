@@ -74,7 +74,7 @@ require_once 'includes/header.php';
                     <td><?php echo $artikel['artikel']; ?></td>
                     <td>€ <?php echo number_format($artikel['prijs'], 2); ?></td>
                     <td><?php echo $artikel['eenheid']; ?></td>
-                    <td><input type="number" name="productID<?php echo $i?>" min="0" max="99" 
+                    <td><input type="number" class="tdInputTable" name="productID<?php echo $i?>" min="0" max="99" 
                     <?php                    
                     if ($artikel['eenheid'] == $gw) : 
                         echo $step;
