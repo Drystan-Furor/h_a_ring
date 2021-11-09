@@ -21,6 +21,7 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
 
 <!-- header file -->
 <?php require_once 'includes/header.php'; ?>
+<!-- header file -->
 
 <!--navigationn file-->
 <?php require_once 'includes/navmenu.php' ?>
@@ -80,10 +81,12 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
     $expiryYear
     $cardValidationValue
    -->
+   <!--gegevens invullen, en bestelling laten  zien -->
+
 <div class="row" id="gegevens">
   <div class="col-75">
     <div class="container">
-      <form action="page_1.php" method="post">
+      <form method="post">
 
         <div class="row">
           <div class="col-50">
@@ -106,7 +109,7 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
                 <input type="text" id="state" name="state" value="<?php echo $userProvincie?>" readonly>
               </div>
               <div class="col-50">
-                <label for="zip">Poscode</label>
+                <label for="zip">Postcode</label>
                 <input type="text" id="zip" name="zip" value="<?php echo $userPostcode?>" readonly>
               </div>
             </div>
@@ -156,8 +159,6 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
           }?>
           name="pickup"  onclick="return false;" onkeydown="return false;"> Ik kom mijn bestelling ophalen in de winkel
         </label>
-
-        <input type="submit" name="checkout" value="Betalen" class="btn" id="afrekenen">
       </form>
     </div>
   </div>
@@ -209,16 +210,22 @@ $totaalBedragKorting = $_SESSION['vars']['totaalBedragKorting'];
 </div>
 </div>
 
+<!-- on button click, ask to return home or bestellen -->
+<button type="submit" name="payment" class="payment" id="payment" onclick="conclude()">Betalen</button>
 
 
-
-
-
-
-<form action="page_1.php">
-  <button type="submit" name="payment" class="bestellen" id="bestellen">Betalen</button>
-</form>
-
+<script>
+function conclude() {
+    alert("Bedankt voor uw bestelling!");
+    if (confirm("Wilt u meer bestellen?")) {
+        //go to page 2
+        location.href = "page_2.php";
+    } else {
+        //go to page 3
+        location.href = "page_3.php";  
+    }
+}
+</script>
 
 <!-- footer file -->
 <?php require_once 'includes/footer.php'; ?>

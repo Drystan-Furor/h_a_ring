@@ -35,7 +35,7 @@ if (isset($_POST["checkout"])) {
         $customerPickup = $_POST["pickup"];
     }
 }
-
+// gebruikers gegevens verwerken
 /*
     $userName 
     $userEmail 

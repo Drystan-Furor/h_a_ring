@@ -10,6 +10,7 @@ require_once 'order_calculate.php';      // collect & process order data
 $title = 'Overzicht Bestelling';
 ?>
 
+<!--hier komt de bezoeker na een bestelling in de shop -->
 
 <!-- header file -->
 <?php require_once 'includes/header.php'; ?>
@@ -109,7 +110,7 @@ $title = 'Overzicht Bestelling';
             <?php
         endforeach; ?> 
 
-        <hr> <!-- ECHO SUM TOTALS -->
+        <p><br><hr></p> <!-- ECHO SUM TOTALS -->
         <p>Sub-Totaal <span class="price" style="color:black"><b>€<?php echo number_format($totaalBedrag, 2) ?></b></span></p>
         <p>Korting <span class="price" style="color:black"><b>€<?php echo number_format($totaalkorting, 2) ?></b></span></p>
         <p>Totaal <span class="price" style="color:black"><b>€<?php echo number_format($totaalBedragKorting, 2) ?></b></span></p>

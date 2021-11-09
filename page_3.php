@@ -27,7 +27,7 @@ require_once 'includes/functions.php';?>
         </div>
     </div>
 </div>
-<!--collapsible ---------------------------------------------------------------------------------->
+<!--collapsible end---------------------------------------------------------------------------------->
 
 <h1 class="rngh2">Visboer H.A.</h1>
 
@@ -62,7 +62,7 @@ require_once 'includes/functions.php';?>
             </ul>
             <li> Op de info en contact-pagina wilt de visboer in ieder geval zijn eigen contactgegevens terug
                 zien. Zie daarvoor bijlage 2. (FOOTER en CONTACT)</li>
-
+<!-- hier werken we met nested ordered/unordered lists om inspringen in teksten te maken voor duidelijkere leesbaarheid -->
             
             <li>De visboer acht het wenselijk dat er één en dezelfde huisstijl wordt aangehouden voor alle
                 webpagina’s. Welke stijl dat is maakt de visboer niet uit: <i>“Ik heb verstand van vis en niet van
@@ -118,7 +118,6 @@ require_once 'includes/functions.php';?>
         </div>
     </div>
 </div>
-<!--collapsible ---------------------------------------------------------------------------------->
 
 
 

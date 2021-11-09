@@ -9,15 +9,14 @@ Als er van
     koppel productID0 aan [productID] => 0
     $var = $array[$key]['element'];
  */
-//require_once 'includes/db_connect.php'; // Database connection file
 require 'includes/functions.php';  // PHP functions file
 require 'includes/productdata.php';
 
     // isset(): returns true even if empty; 
-    // array_key_exists() returns true even if empty;
-    // empty() returns if isset=>true, and
-    // array_key_exist() => true, BUT VALUE NOT [null; 0, '',]
-
+    // array_key_exists() returns true when set but still empty;
+    // empty() returns if isset=>true, AND
+    //      array_key_exist() => true, BUT VALUE NOT [null; 0, '',]
+//this is the php file that calculates prices based on user input
 if (isset($_POST['bestellen'])) { 
     // if <button> is clicked
     $totaalBedrag = 0;
@@ -65,12 +64,15 @@ if (isset($_POST['bestellen'])) {
                 ];
                 $totaalBedrag += $productByTotal; //sum total 
                 $totaalkorting += $productByDiscount;
-        }       
-    }
+        } 
+    }  
+    if (empty($bestellingen)) {
+        header('Location: http://localhost/h_a_ring/page_2.php');
+        exit();
+    }    
     $totaalBesteldeArtikelen = count($bestellingen);
     $totaalBedragKorting = $totaalBedrag - $totaalkorting;
-    //how many different items are ordered?
-} //NEW CODE, VARS OPHALEN, niet RERUN script. data bestaat al,
+} 
 
 $vars = [
     'totaalBesteldeArtikelen' => $totaalBesteldeArtikelen,

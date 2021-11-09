@@ -3,7 +3,7 @@
  Bestel Pagina 
  */
 
-require_once 'includes/productdata.php';
+require_once 'includes/productdata.php'; //haal productdata op
 $title = "Bestel";
 ?>
 
@@ -96,11 +96,13 @@ require_once 'includes/header.php';
     Als u van een soort product 3 of meer besteld, dan krijgt u €<?php echo $discount ?> korting per stuk.<br>
     Dit zult u aangegeven zien in het bestel overzicht.
                 </p>
-
 </div>
-<!--collapsible end-->
+<!--end-->
 
-
+<script> //JS alertbox
+alert('Hier kunt u bestellen. \r\n' 
++'Vul een aantal in, \r\n of gebruik de click pijltjes bij de vakjes.')
+</script>
 
 <!-- footer file -->
 <?php require_once 'includes/footer.php'; ?>

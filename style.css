@@ -17,7 +17,7 @@ body {
 }
 
 
-/*-----------------------welcome-----------------------------------------*/
+/*------welcome---------------------*/
 
 img {
     display: block;
@@ -27,7 +27,7 @@ img {
 }
 
 
-/*-------------------------------------------------------LOAD BOX*/
+/*-----------------------------------LOAD BOX*/
 
 .generateloader {
     font-family: Copperplate, Fantasy, serif;
@@ -86,7 +86,7 @@ background-color: rgb(15, 15, 15);
 }
 
 
-/*--------------------------------------------------------------CENTER*/
+/*--------------------------------------------CENTER*/
 
 .center {
     display: block;
@@ -97,7 +97,7 @@ background-color: rgb(15, 15, 15);
 }
 
 
-/* navigatie menu ---------------------------------------------------------------------------*/
+/* navigatie menu ----------------------------------------*/
 
 .navmenu {
     background-color: #767676;
@@ -140,10 +140,10 @@ background-color: rgb(15, 15, 15);
 }
 
 
-/* einde navigatie menu ---------------------------------------------------------------------------*/
+/* einde navigatie menu -------------------------------------*/
 
 
-/* Landings pagina h1*------------------------------------------text colors*/
+/* Landings pagina h1*---------------------------text colors*/
 
 .rngcenter {
     font-family: Copperplate, Fantasy, serif;
@@ -182,7 +182,7 @@ background-color: rgb(15, 15, 15);
 }
 
 
-/*-----------------------intro paragraph---------------------------------------------------*/
+/*---------------intro paragraph---------------------------*/
 
 .introparagraph a:link {
     color: #45CEF7;
@@ -207,7 +207,7 @@ background-color: rgb(15, 15, 15);
 }
 
 
-/*----------------------------------greeting-------------------------------------*/
+/*------------------------greeting----------------------------*/
 
 .greeting {
     font-family: "Courier New", monospace;
@@ -220,7 +220,7 @@ background-color: rgb(15, 15, 15);
 }
 
 
-/*------------------------------------dnd races------------------------------------------*/
+/*-----------------------------dnd races-----------------------------*/
 
 .dndraces,
 .dndraces a:link,
@@ -254,6 +254,25 @@ background-color: rgb(15, 15, 15);
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.payment {
+    background-color: rgb(4, 110, 27);
+    color: white;
+    padding: 5px 0 5px 5px;
+    font-family: Copperplate, Fantasy, serif;
+    border: 3px solid black;
+    border-radius: 50px;
+    font-size: 140%;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
 
 

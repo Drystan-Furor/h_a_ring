@@ -1,22 +1,23 @@
 <!-- header file -->
 <?php
-$title = "Home";
-require_once 'includes/header.php'; 
-require_once 'includes/functions.php';
-require_once 'includes/productdata.php';
+$title = "Home"; //wederom titel op tabblad browser
+require_once 'includes/header.php';  // header file (open <body>)
+require_once 'includes/functions.php'; // laad de nodige php functies
+require_once 'includes/productdata.php'; // laad de product informatie uit array
 ?>
 
 
-<!--navigationn file-->
+<!--navigationn file plaatst de navigatiebalk-->
 <?php require_once 'includes/navmenu.php' ?>
 <!--navigationn file-->
 
 
-
+<!-- een mmoie titel, dankzij SPAN tags met verschillende kleuren tekst binnen een element-->
 <h1 class="rngcenter">Visboer <br><span class="whitetext">H.A. Ring</span></h1>
 
+<!-- de inhoud van een uitvouw pijltje, we noemen het collapsible-->
 <!--collapsible -->
-<div class="wrap-collabsible">
+<div class="wrap-collabsible"><!--DIV classes voor CSS -->
     <input id="collapsible" class="toggle" type="checkbox">
     <label for="collapsible" class="lbl-toggle">Vis naar Info</label>
     <div class="collapsible-content">
@@ -34,13 +35,13 @@ require_once 'includes/productdata.php';
         </div>
     </div>
 </div>
-<!--collapsible-<p class="centeredpar">-->
+<!--collapsible-->
 
 
 <h2 class="rngh2">Hier volgt de website.</h2>
 <div class="greeting">
-<h3><?php echo greet();?>(PHP function)</h3>
-<p>Welkom op onze site, <a href="page_2.php">hier</a> kunt u ook bestellen</p>
+<h3><?php echo greet();?>(PHP function)</h3><!--open PHP tags en roep Functie aan -->
+<p>Welkom op onze site, <a href="page_2.php">hier</a> kunt u ook bestellen</p> <!-- de link naar de webshop -->
 </div>
 
 <div class="centertext">
@@ -48,7 +49,8 @@ require_once 'includes/productdata.php';
 
         Op de echte website kan de bezoeker naar een bestelpagina, een info-pagina en een
         contact-pagina.<br>
-        <span id="greeting"></span><br>
+        <span id="greeting"></span><br><!-- hier zegt JS goedenmorgen / middag / avond -->
+
         begroeting op tijd basis via JS<br>
     Klik hierboven op "vis naar info voor Javascript functionaliteit".<br>
     Klik hieronder op "alle prijzen" om een php array te zien binnen een JS script.<br>
@@ -76,7 +78,8 @@ require_once 'includes/productdata.php';
                     <th>Prijs per eenheid</th>
                 </tr>
                 <?php
-                foreach ($artikelen as $artikel) : ?>
+                foreach ($artikelen as $artikel) : ?> <!-- via php hoeven we niet zelf een hele tabel te schrijven-->
+                <!-- verder is dit ook dynamisch, als ik een product invul op productdata zal deze hier automatisch verschijnen-->
                     <tr>
                         <td><?php echo $artikel['artikel']; ?></td>
                         <td><?php echo $artikel['eenheid']; ?></td>
@@ -109,15 +112,14 @@ require_once 'includes/productdata.php';
 <div class="loading-box">
     <div class="loader"></div>
 </div><br>
+<!-- de oneindige laad balk die maar doorloopt-->
 
 
 
 
 
-
-
-<!--SCRIPTS -->
-<script>
+<!--SCRIPTS van JavaScript -->
+<script> //deze "luistert" of er op het uitvouwpijltje wordt geklikt
     let myLabels = document.querySelectorAll('.lbl-toggle');
 
     Array.from(myLabels).forEach(label => {
@@ -132,7 +134,7 @@ require_once 'includes/productdata.php';
     });
 </script>
 
-<script>
+<script> // dit is de begroeting op basis van tijd
     var tijd = new Date().getHours();
     if (tijd < 12) {
     begroeting = "Goedemorgen";
@@ -144,9 +146,10 @@ require_once 'includes/productdata.php';
     begroeting = "Goedeavond";
     // code if 1 == false && 2 == false
 }
-    document.getElementById("greeting").innerHTML = begroeting
+    document.getElementById("greeting").innerHTML = begroeting //de "plek" waar het in de HTML wordt gezet
 </script>
 
 
 <!-- footer file -->
 <?php require_once 'includes/footer.php'; ?>
+<!-- footer file -->
